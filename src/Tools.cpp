@@ -4,7 +4,8 @@ namespace Tools
 {
     std::string createTimestamp(char const *tzdata)
     /*
-    */
+     *
+     */
     {
         char timeBuffer[80];
         time_t rawtime;
@@ -18,7 +19,8 @@ namespace Tools
 
     bool doesFileExist(const std::string &filename)
     /*
-    */
+     *
+     */
     {
         std::ifstream _file;
         bool __statusCode;
@@ -35,6 +37,9 @@ namespace Tools
     };
 
     void printFile(const std::string &filename)
+    /*
+     *
+     */
     {
         bool printFileStatusCode;
         printFileStatusCode = Tools::doesFileExist(filename);
