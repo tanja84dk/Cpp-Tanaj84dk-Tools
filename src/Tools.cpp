@@ -22,18 +22,18 @@ namespace Tools
      *
      */
     {
-        std::ifstream _file;
-        bool __statusCode;
-        _file.open(filename, std::ifstream::in);
-        if (_file.is_open())
+        std::ifstream fileHandler;
+        bool statusCode;
+        fileHandler.open(filename, std::ifstream::in);
+        if (fileHandler.is_open())
         {
-            __statusCode = true;
+            statusCode = true;
         } else {
-            __statusCode = false;
+            statusCode = false;
         }
-        _file.close();
-        //std::cout << __statusCode << std::endl;
-        return __statusCode;
+        fileHandler.close();
+
+        return statusCode;
     };
 
     void printFile(const std::string &filename)
@@ -41,9 +41,9 @@ namespace Tools
      *
      */
     {
-        bool printFileStatusCode;
-        printFileStatusCode = Tools::doesFileExist(filename);
-        if ( printFileStatusCode == true )
+        bool StatusCode;
+        StatusCode = Tools::doesFileExist(filename);
+        if ( StatusCode == true )
         {
             std::cout << std::endl;
             std::ifstream fileHandler(filename, std::ifstream::in);
