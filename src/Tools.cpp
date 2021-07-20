@@ -4,7 +4,7 @@ namespace Tools
 {
     std::string createTimestamp(char const *tzdata)
     /*
-     *
+     * Creating a timestamp string
      */
     {
         char timeBuffer[80];
@@ -19,7 +19,7 @@ namespace Tools
 
     bool doesFileExist(const std::string &filename)
     /*
-     *
+     * Checking if the ile exist and return a bool
      */
     {
         std::ifstream fileHandler;
@@ -38,7 +38,7 @@ namespace Tools
 
     void printFile(const std::string &filename)
     /*
-     *
+     * Printing a file to console
      */
     {
         bool StatusCode;
@@ -54,12 +54,30 @@ namespace Tools
     
     void writeFile(const std::string &data, const std::string &filename)
     /*
-     * Function to write data to files
+     * Writing string to a text file
      */
     {
         std::ofstream fileHandler;
         fileHandler.open(filename);
         fileHandler << data;
+        fileHandler.close();
+    }
+
+    void writeFile(const std::vector<std::bitset<8>> &data, const std::string &filename)
+    /*
+     * Writing the Binary Ascii to a text file
+     */
+    {
+        std::ofstream fileHandler;
+        fileHandler.open(filename);
+        for ( size_t i = 0; i < data.size(); i++ )
+        {
+            fileHandler << data[i];
+            if ( i != data.size() - 1 )
+            {
+                fileHandler << ' ';
+            }
+        }
         fileHandler.close();
     }
 };
