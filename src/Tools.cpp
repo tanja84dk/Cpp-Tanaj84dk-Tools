@@ -62,4 +62,23 @@ namespace Tools
         fileHandler << data;
         fileHandler.close();
     }
+
+    void writeFile(const std::vector<std::bitset<8>> &data, const std::string &filename)
+    /*
+     * Writing the 8-Bit
+     */
+    {
+        std::ofstream fileHandler;
+        fileHandler.open(filename);
+        for ( size_t i = 0; i < data.size(); i++ )
+        {
+            fileHandler << data[i];
+            if ( i != data.size() - 1 )
+            {
+                fileHandler << ' ';
+
+            }
+        }
+        fileHandler.close();
+    }
 };
