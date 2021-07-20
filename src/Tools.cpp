@@ -76,7 +76,6 @@ namespace Tools
             if ( i != data.size() - 1 )
             {
                 fileHandler << ' ';
-
             }
         }
         fileHandler.close();
