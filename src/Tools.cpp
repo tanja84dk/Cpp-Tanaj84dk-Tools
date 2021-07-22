@@ -51,6 +51,18 @@ namespace Tools
             fileHandler.close();
         }
     }
+
+    std::string readFile(const std::string &filename)
+    {
+        std::string outputData;
+        std::ifstream fileHandler(filename, std::ifstream::in);
+        fileHandler.seekg(0, std::ios::end);
+        outputData.reserve(fileHandler.tellg());
+        fileHandler.seekg(0, std::ios::beg);
+        outputData.assign((std::istreambuf_iterator<char>(fileHandler)),
+                            std::istreambuf_iterator<char>());
+        return outputData;
+    }
     
     void writeFile(const std::string &data, const std::string &filename)
     /*
