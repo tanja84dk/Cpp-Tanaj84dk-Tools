@@ -69,7 +69,7 @@ namespace Tools
 
     std::string removeExtention(const std::string &inputFilename)
     /*
-     * Remove the extention from the filenam
+     * Remove the extention from the filename
      */
     {
         size_t lastDot;
