@@ -1,6 +1,6 @@
-#include <Tools/Tools.h>
+#include <Tanja84dk/Tools/Tools.h>
 
-namespace Tools
+namespace Tanja84dk::Tools
 {
     std::string createTimestamp(char const *tzdata)
     /*

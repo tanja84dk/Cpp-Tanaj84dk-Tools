@@ -11,7 +11,7 @@ cmake_minimum_required(VERSION 3.8)
 project(Tanja84dkTools VERSION 0.1.1)
 
 set(Headers
-    include/Tools/Tools.h
+    include/Tanja84dk/Tools/Tools.h
 )
 
 set(Sources

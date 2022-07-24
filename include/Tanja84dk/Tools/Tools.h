@@ -1,5 +1,4 @@
-#ifndef TOOLS_TOOLS_H
-#define TOOLS_TOOLS_H
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -7,7 +6,7 @@
 #include <bitset>
 #include <vector>
 
-namespace Tools
+namespace Tanja84dk::Tools
 {
 	std::string createTimestamp(char const *tzdata);
 	bool doesFileExist(const std::string &filename);
@@ -17,5 +16,3 @@ namespace Tools
 	void writeFile(const std::vector<std::bitset<8>> &data, const std::string &filename);
 	void printFile(const std::string &filename);
 }
-
-#endif // !TOOLS_TOOLS_H
