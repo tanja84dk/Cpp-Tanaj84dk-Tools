@@ -9,7 +9,7 @@ namespace Tools
     {
         char timeBuffer[80];
         time_t rawtime;
-        struct tm* timeinfo;
+        struct tm *timeinfo;
         time(&rawtime);
         timeinfo = localtime(&rawtime);
         strftime(timeBuffer, sizeof(timeBuffer), tzdata, timeinfo);
@@ -28,7 +28,9 @@ namespace Tools
         if (fileHandler.is_open())
         {
             statusCode = true;
-        } else {
+        }
+        else
+        {
             statusCode = false;
         }
         fileHandler.close();
@@ -43,11 +45,12 @@ namespace Tools
     {
         bool StatusCode;
         StatusCode = Tools::doesFileExist(filename);
-        if ( StatusCode == true )
+        if (StatusCode == true)
         {
             std::cout << std::endl;
             std::ifstream fileHandler(filename, std::ifstream::in);
-            std::cout << std::endl << fileHandler.rdbuf() << std::endl;
+            std::cout << std::endl
+                      << fileHandler.rdbuf() << std::endl;
             fileHandler.close();
         }
     }
@@ -60,10 +63,21 @@ namespace Tools
         outputData.reserve(fileHandler.tellg());
         fileHandler.seekg(0, std::ios::beg);
         outputData.assign((std::istreambuf_iterator<char>(fileHandler)),
-                            std::istreambuf_iterator<char>());
+                          std::istreambuf_iterator<char>());
         return outputData;
     }
-    
+
+    std::string removeExtention(const std::string &inputFilename)
+    /*
+     * Remove the extention from the filenam
+     */
+    {
+        size_t lastDot;
+
+        lastDot = inputFilename.find_last_of('.');
+        return inputFilename.substr(0, lastDot);
+    }
+
     void writeFile(const std::string &data, const std::string &filename)
     /*
      * Writing string to a text file
@@ -82,10 +96,10 @@ namespace Tools
     {
         std::ofstream fileHandler;
         fileHandler.open(filename);
-        for ( size_t i = 0; i < data.size(); i++ )
+        for (size_t i = 0; i < data.size(); i++)
         {
             fileHandler << data[i];
-            if ( i != data.size() - 1 )
+            if (i != data.size() - 1)
             {
                 fileHandler << ' ';
             }
