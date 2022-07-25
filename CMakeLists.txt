@@ -22,7 +22,7 @@ add_library(${PROJECT_NAME}
 	${Sources}
 )
 
-add_library(libs::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+add_library(Tanja84dk::Tools ALIAS ${PROJECT_NAME})
 
 target_link_libraries(${PROJECT_NAME} ${Shared_Libraries} ${Static_Libraries})
 
