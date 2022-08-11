@@ -1,22 +1,19 @@
 cmake_minimum_required(VERSION 3.8)
-set(This ToolsTests)
+project(Tanja84dkTools_tests)
 
 set(Sources
     src/ToolsTests.cpp
 )
 
-add_executable(${This} ${Sources})
+add_executable(${PROJECT_NAME} ${Sources})
 set_target_properties(${This} PROPERTIES
     FOLDER Tests
 )
 
-target_include_directories(${This} PRIVATE ..)
+#target_include_directories(${This} PRIVATE ..)
 
-target_link_libraries(${This} PUBLIC
-    Tools
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Tanja84dk::Tools
 )
 
-add_test(
-    NAME ${This}
-    COMMAND ${This}
-)
+add_test(${PROJECT_NAME} ${PROJECT_NAME})
