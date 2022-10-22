@@ -22,20 +22,8 @@ namespace Tanja84dk::Tools
      * Checking if the ile exist and return a bool
      */
     {
-        std::ifstream fileHandler;
-        bool statusCode;
-        fileHandler.open(filename, std::ifstream::in);
-        if (fileHandler.is_open())
-        {
-            statusCode = true;
-        }
-        else
-        {
-            statusCode = false;
-        }
-        fileHandler.close();
-
-        return statusCode;
+        const std::filesystem::path p = filename;
+        return (std::filesystem::exists(p));
     };
 
     void printFile(const std::string &filename)

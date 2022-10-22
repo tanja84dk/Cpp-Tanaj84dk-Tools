@@ -5,6 +5,7 @@
 #include <fstream>
 #include <bitset>
 #include <vector>
+#include <filesystem>
 
 namespace Tanja84dk::Tools
 {
