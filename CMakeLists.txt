@@ -1,9 +1,5 @@
 # CMakeLists.txt for Tools Collection
 #
-# © 2021 by Tanja84DK
-
-# CMakeLists.txt for Tools Collection
-#
 # © 2021-2022 by Tanja84DK
 
 cmake_minimum_required(VERSION 3.8)
@@ -18,13 +14,9 @@ set(Sources
     src/Tools.cpp
 )
 
-add_library(${PROJECT_NAME}
-	${Sources}
-)
+add_library(${PROJECT_NAME} ${Sources} ${Headers})
 
 add_library(Tanja84dk::Tools ALIAS ${PROJECT_NAME})
-
-target_link_libraries(${PROJECT_NAME} ${Shared_Libraries} ${Static_Libraries})
 
 target_include_directories(${PROJECT_NAME}
 	PUBLIC
@@ -36,7 +28,7 @@ target_include_directories(${PROJECT_NAME}
 
 target_compile_features(${PROJECT_NAME}
 	PRIVATE
-		cxx_std_14
+		cxx_std_17
 )
 
 set_target_properties(${PROJECT_NAME}
