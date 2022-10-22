@@ -6,6 +6,8 @@ cmake_minimum_required(VERSION 3.8)
 
 project(Tanja84dkTools VERSION 0.1.1)
 
+set(BUILD_TESTING ON)
+
 set(Headers
     include/Tanja84dk/Tools/Tools.h
 )
@@ -36,6 +38,7 @@ set_target_properties(${PROJECT_NAME}
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+	CXX_STANDARD 17
 	VERSION ${PROJECT_VERSION}
 	SOVERSION ${PROJECT_VERSION_MAJOR}
 )
