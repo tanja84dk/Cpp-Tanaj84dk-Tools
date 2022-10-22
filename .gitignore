@@ -1,5 +1,5 @@
 [Bb]uild/
 [Oo]ut/
 .vs/
-.vscode7
+.vscode/
 CMakeSettings.json
