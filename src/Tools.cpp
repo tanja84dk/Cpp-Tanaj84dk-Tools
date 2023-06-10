@@ -66,24 +66,38 @@ namespace Tanja84dk::Tools
         return inputFilename.substr(0, lastDot);
     }
 
-    void writeFile(const std::string &data, const std::string &filename)
+    void writeFile(const std::string &data, const std::string &filename, bool append = false) noexcept
     /*
      * Writing string to a text file
      */
     {
         std::ofstream fileHandler;
-        fileHandler.open(filename);
+        if (append == true)
+        {
+            fileHandler.open(filename, std::ios_base::app);
+        }
+        else
+        {
+            fileHandler.open(filename);
+        }
         fileHandler << data;
         fileHandler.close();
     }
 
-    void writeFile(const std::vector<std::bitset<8>> &data, const std::string &filename)
+    void writeFile(const std::vector<std::bitset<8>> &data, const std::string &filename, bool append = false) noexcept
     /*
      * Writing the Binary Ascii to a text file
      */
     {
         std::ofstream fileHandler;
-        fileHandler.open(filename);
+        if (append == true)
+        {
+            fileHandler.open(filename, std::ios_base::app);
+        }
+        else
+        {
+            fileHandler.open(filename);
+        }
         for (size_t i = 0; i < data.size(); i++)
         {
             fileHandler << data[i];

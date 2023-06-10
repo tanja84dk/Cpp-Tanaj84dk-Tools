@@ -13,7 +13,7 @@ namespace Tanja84dk::Tools
 	bool doesFileExist(const std::string &filename);
 	std::string readFile(const std::string &filename);
 	std::string removeExtention(const std::string &inputFilename);
-	void writeFile(const std::string &data, const std::string &filename);
-	void writeFile(const std::vector<std::bitset<8>> &data, const std::string &filename);
+	void writeFile(const std::string &data, const std::string &filename, bool append = false) noexcept;
+	void writeFile(const std::vector<std::bitset<8>> &data, const std::string &filename, bool append = false) noexcept;
 	void printFile(const std::string &filename);
 }
