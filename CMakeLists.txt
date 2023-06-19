@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.8)
 
 project(Tanja84dk_tools VERSION 0.1.1)
 
-set(BUILD_TESTING ON)
+set(Tanja84dk_tools_BUILD_TESTING OFF)
 
 set(Tanja84dk_tools_HEADERS
   include/Tanja84dk/tools/tools.h
@@ -39,10 +39,11 @@ set_target_properties(Tanja84dk_tools
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 		CXX_STANDARD 17
-		VERSION ${PROJECT_VERSION}
-		SOVERSION ${PROJECT_VERSION_MAJOR}
+		VERSION ${Tanja84dk_tools_VERSION}
+		SOVERSION ${Tanja84dk_tools_VERSION_MAJOR}
 )
+message("VERSION ${Tanja84dk_tools_VERSION}, SOVERSION ${Tanja84dk_tools_VERSION_MAJOR}")
 
-if(BUILD_TESTING)
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR OR Tanja84dk_tools_BUILD_TESTING STREQUAL ON)
 	add_subdirectory(test)
 endif()
