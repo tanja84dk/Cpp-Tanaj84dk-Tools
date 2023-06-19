@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <Tanja84dk/Tools/Tools.h>
+#include <Tanja84dk/tools/tools.h>
 
 int main()
 {
@@ -9,7 +9,7 @@ int main()
     std::cout << r << std::endl;
     printf("Enter a file there exist: ");
     std::getline(std::cin >> std::ws, filenametest);
-    r = Tanja84dk::Tools::doesFileExist(filenametest);
+    r = Tanja84dk::tools::file_exists(filenametest);
     if (r == true)
     {
         printf("%s Exist", filenametest.c_str());
