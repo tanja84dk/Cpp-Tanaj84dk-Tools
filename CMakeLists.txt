@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.8)
 
 project(tanja84dk_tools VERSION 0.1.1)
 
-set(tanja84dk_tools_BUILD_TESTING OFF)
+option(tanja84dk_tools_BUILD_TESTING OFF)
 
 set(tanja84dk_tools_HEADERS
   include/Tanja84dk/tools/tools.h
@@ -15,6 +15,8 @@ set(tanja84dk_tools_HEADERS
 set(tanja84dk_tools_SOURCES
   src/tools.cpp
 )
+
+include(cmake/tanja84dk_warnings.cmake)
 
 add_library(tanja84dk_tools ${tanja84dk_tools_SOURCES} ${tanja84dk_tools_HEADERS})
 
@@ -43,7 +45,6 @@ set_target_properties(tanja84dk_tools
 		VERSION ${tanja84dk_tools_VERSION}
 		SOVERSION ${tanja84dk_tools_VERSION_MAJOR}
 )
-message("VERSION ${tanja84dk_tools_VERSION}, SOVERSION ${tanja84dk_tools_VERSION_MAJOR}")
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR OR tanja84dk_tools_BUILD_TESTING STREQUAL ON)
 	add_subdirectory(test)
