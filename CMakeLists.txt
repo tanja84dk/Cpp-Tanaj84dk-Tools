@@ -11,11 +11,11 @@ option(tanja84dk_tools_BUILD_TESTING OFF)
 option(BUILD_SHARED_LIBS OFF)
 
 set(tanja84dk_tools_HEADERS
-  include/Tanja84dk/tools/tools.h
+	include/Tanja84dk/tools/tools.h
 )
 
 set(tanja84dk_tools_SOURCES
-  src/tools.cpp
+	src/tools.cpp
 )
 
 include(cmake/tanja84dk_warnings.cmake)
@@ -43,10 +43,10 @@ target_compile_features(tanja84dk_tools
 )
 
 set_target_properties(tanja84dk_tools
-  PROPERTIES
-	  ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+	PROPERTIES
+		ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    	LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
+    	RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
 		CXX_STANDARD 17
 		VERSION ${tanja84dk_tools_VERSION}
 		SOVERSION ${tanja84dk_tools_VERSION_MAJOR}
