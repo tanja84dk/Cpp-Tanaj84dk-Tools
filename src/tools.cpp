@@ -18,14 +18,14 @@ std::string Tanja84dk::tools::get_timestamp(char const *tzdata) {
     return time_stamp_now;
 };
 
-bool Tanja84dk::tools::file_exists(const std::string &filename) {
+bool Tanja84dk::tools::file_exist(const std::string &filename) noexcept {
     const std::filesystem::path p = filename;
     return (std::filesystem::exists(p));
 };
 
 void Tanja84dk::tools::print_file(const std::string &filename) {
     bool status_code_bool;
-    status_code_bool = Tanja84dk::tools::file_exists(filename);
+    status_code_bool = Tanja84dk::tools::file_exist(filename);
     if (status_code_bool == true) {
         std::cout << std::endl;
         std::ifstream file_handler(filename, std::ifstream::in);
@@ -50,11 +50,7 @@ std::string Tanja84dk::tools::remove_extention(const std::string &filename) {
     return filename.substr(0, pos_last_dot);
 }
 
-void Tanja84dk::tools::write_file(const std::string &data, const std::string &filename) noexcept {
-    Tanja84dk::tools::write_file(data, filename, false);
-}
-
-void Tanja84dk::tools::write_file(const std::string &data, const std::string &filename, bool append = false) noexcept {
+void Tanja84dk::tools::write_file(const std::string &data, const std::string &filename, bool append) noexcept {
     std::ofstream file_handler;
     if (append == true) {
         file_handler.open(filename, std::ios_base::app);
@@ -63,10 +59,6 @@ void Tanja84dk::tools::write_file(const std::string &data, const std::string &fi
     }
     file_handler << data;
     file_handler.close();
-}
-
-void Tanja84dk::tools::write_file(const std::vector<std::bitset<8>> &data, const std::string &filename) noexcept {
-    Tanja84dk::tools::write_file(data, filename, false);
 }
 
 void Tanja84dk::tools::write_file(const std::vector<std::bitset<8>> &data, const std::string &filename,
