@@ -8,6 +8,8 @@ project(tanja84dk_tools VERSION 0.1.1)
 
 option(tanja84dk_tools_BUILD_TESTING OFF)
 
+option(BUILD_SHARED_LIBS OFF)
+
 set(tanja84dk_tools_HEADERS
   include/Tanja84dk/tools/tools.h
 )
@@ -18,7 +20,11 @@ set(tanja84dk_tools_SOURCES
 
 include(cmake/tanja84dk_warnings.cmake)
 
-add_library(tanja84dk_tools ${tanja84dk_tools_SOURCES} ${tanja84dk_tools_HEADERS})
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+include(cmake/CPM.cmake)
+
+add_library(tanja84dk_tools ${tanja84dk_tools_SOURCES})
 
 add_library(Tanja84dk::tools ALIAS tanja84dk_tools)
 add_library(Tanja84dk_tools ALIAS tanja84dk_tools)
