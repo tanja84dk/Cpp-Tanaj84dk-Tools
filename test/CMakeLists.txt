@@ -1,21 +1,9 @@
-cmake_minimum_required(VERSION 3.8)
+find_package(Catch2 3 REQUIRED)
+# These tests can use the Catch2-provided main
+add_executable(tanja84dk_tools_test src/tanja84dk_tools_test.cpp)
+target_link_libraries(tanja84dk_tools_test PRIVATE Catch2::Catch2WithMain Tanja84dk::tools)
 
-project(Tanja84dk_tools_tests)
+include(CTest)
 
-set(Tanja84dk_tools_tests_SOURCES
-  src/tanja84dk_tools_test.cpp
-)
-
-add_executable(Tanja84dk_tools_tests ${Tanja84dk_tools_tests_SOURCES})
-
-set_target_properties(${Tanja84dk_tools_tests}
-  PROPERTIES
-    FOLDER Tests
-)
-
-
-target_link_libraries(Tanja84dk_tools_tests PRIVATE
-    Tanja84dk::tools
-)
-
-add_test(Tanja84dk_tools_tests Tanja84dk_tools_tests)
+# These tests need their own main
+#add_executable(custom-main-tests test.cpp test-main.cpp)
